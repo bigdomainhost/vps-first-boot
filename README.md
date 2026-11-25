@@ -12,7 +12,7 @@ One bash script for the first ten minutes on a fresh Debian or Ubuntu VPS. It do
 
 It prints every change it makes, and a summary at the end. Run it twice and the second run should report that nothing changed.
 
-We wrote this at [Bigdomainhost](https://bigdomainhost.com/vps-hosting.html) because "create a non-root user, move SSH to key-only, enable the firewall" is the first job on every new VPS, and the easiest one to get wrong. It has nothing specific to our platform in it, so it should work on any KVM VPS running the distros below.
+We wrote this at [Bigdomainhost](https://bigdomainhost.in/vps-hosting.html) because "create a non-root user, move SSH to key-only, enable the firewall" is the first job on every new VPS, and the easiest one to get wrong. It has nothing specific to our platform in it, so it should work on any KVM VPS running the distros below.
 
 ## Intended for
 
@@ -63,7 +63,7 @@ Locking yourself out is the classic first-day mistake, so the SSH part runs last
 
 If there is no terminal to ask on (cloud-init, a CI job), it skips this step and tells you. Test the login yourself, then re-run with `--yes`.
 
-If you do lock yourself out anyway, use your provider's out-of-band console. On ours it is in the control panel, see the [docs](https://bigdomainhost.com/docs.html).
+If you do lock yourself out anyway, use your provider's out-of-band console. On ours it is in the control panel, see the [docs](https://bigdomainhost.in/docs.html).
 
 ## Flags
 
@@ -100,7 +100,7 @@ sudo rm /etc/sudoers.d/90-first-boot-deploy
 
 **SSH stays on port 22.** Moving it cuts log noise but does not stop anyone who is actually looking, and fail2ban handles the noise. On Ubuntu 24.04 changing the port also means editing `ssh.socket`, which is a good way to lock yourself out.
 
-**Swap is 1 to 2 GB, not "2x RAM".** Swap on a VPS is an emergency buffer that turns an out-of-memory crash into a slow patch. If the server swaps every day, it needs more RAM. There is a longer write-up on this in our [guide to VPS RAM sizing](https://bigdomainhost.com/guide-how-much-ram-does-a-vps-need.html).
+**Swap is 1 to 2 GB, not "2x RAM".** Swap on a VPS is an emergency buffer that turns an out-of-memory crash into a slow patch. If the server swaps every day, it needs more RAM. There is a longer write-up on this in our [guide to VPS RAM sizing](https://bigdomainhost.in/guide-how-much-ram-does-a-vps-need.html).
 
 **No automatic reboots.** Unattended-upgrades installs security updates but will not reboot for a new kernel. Check `/var/run/reboot-required` now and then.
 
